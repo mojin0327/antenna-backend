@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // 環境変数からポートを取得
 
 app.use(express.json());
 
@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to the Profit Calculator API!');
 });
 
+// 修正: Herokuの指定ポートにバインド
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
