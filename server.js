@@ -1,7 +1,9 @@
 const express = require('express');
+const cors = require('cors'); // CORSをインポート
 const app = express();
 const PORT = process.env.PORT || 3000; // 環境変数からポートを取得
 
+app.use(cors({ origin: 'https://antenna-front.vercel.app' })); // CORS設定を追加
 app.use(express.json());
 
 // 簡単な計算 API
